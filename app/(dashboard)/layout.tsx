@@ -13,7 +13,8 @@ const DashboardLayout = ({
             md:pl-56 fixed inset-y-0 w-full z-50">
                 <Navbar />
             </div>
-            <div className="hidden md:flex w-56 flex-col fixed inset-y-0 z-50">
+            
+                 <div className="hidden md:flex w-56 flex-col fixed inset-y-0 z-50">
                 <Sidebar />
             </div>
             <main
