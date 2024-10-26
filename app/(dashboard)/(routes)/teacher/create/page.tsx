@@ -108,3 +108,4 @@ render={({ field }) => (
         </div>
     )
 }
+export default CreatePage;
