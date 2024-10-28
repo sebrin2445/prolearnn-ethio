@@ -20,11 +20,10 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
+import { Course } from "@prisma/client";
 
 interface DescriptionFormProps {
-    initialData: {
-        description: string;
-    };
+    initialData: Course;
     courseId:string;
 };
 
@@ -43,9 +42,11 @@ export const DescriptionForm = ({
 
     const toggleEdit = () => setIsEditing((current) => !current);
 const router= useRouter();
+
     const form =useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema) ,
-        defaultValues: initialData,
+        defaultValues: {
+            description:initialData?.description || "", },
     });
     const { isSubmitting, isValid } = form.formState;
 
@@ -106,7 +107,9 @@ router.refresh();
                            <div className="flex items-center gap-x-2">
                             <Button disabled ={!isValid || isSubmitting} type="submit"
                             
-                            ></Button>
+                            >
+                                Save
+                            </Button>
 
                            </div>
                         </form>
